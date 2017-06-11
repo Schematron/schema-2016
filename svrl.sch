@@ -44,7 +44,7 @@ AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD."
         </sch:rule>
         <sch:rule abstract="true" id="empty">
             <sch:extends rule="childless"/>
-            <sch:assert test="string-length(space-normalize(.)) = 0"> The <sch:name/>
+            <sch:assert test="string-length(normalize-space(.)) = 0"> The <sch:name/>
                  element should be empty. </sch:assert>
         </sch:rule>
         <!-- Rules-->
@@ -107,10 +107,8 @@ AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD."
                       contain a text element. </sch:assert>
                <sch:assert
                       test="preceding-sibling::svrl:fired-rule |
-               preceding-sibling::svrl:failed-assert |preceding-sibling::svrl:successful-
-                      report"
-                      > A <sch:name/> comes after a fired-rule, a failed-assert or a successful-
-                      report.
+               preceding-sibling::svrl:failed-assert |preceding-sibling::svrl:successful-report"
+                      > A <sch:name/> comes after a fired-rule, a failed-assert or a successful-report.
                </sch:assert>
           </sch:rule>
           <!-- Catch-all rule-->
@@ -122,7 +120,7 @@ AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD."
      <sch:pattern>
           <sch:title>Unique Ids</sch:title>
           <sch:rule context="*[@id]">
-               <sch:assert test="not(preceding::*[@id=current()/@id][1]"> Id attributes
+               <sch:assert test="not(preceding::*[@id=current()/@id][1])"> Id attributes
                       should be unique in a document. </sch:assert>
           </sch:rule>
      </sch:pattern>
@@ -139,11 +137,11 @@ AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD."
           <sch:param name="attribute" value="@diagnostic"/>
      </sch:pattern>
      <sch:pattern is-a="requiredAttribute">
-          <sch:param name="context" value="svrl:failed-assert or svrl:successful-report"/>
+          <sch:param name="context" value="svrl:failed-assert | svrl:successful-report"/>
           <sch:param name="attribute" value="@location"/>
      </sch:pattern>
      <sch:pattern is-a="requiredAttribute">
-          <sch:param name="context" value="svrl:failed-assert or svrl:successful-report"/>
+          <sch:param name="context" value="svrl:failed-assert | svrl:successful-report"/>
           <sch:param name="attribute" value="@test"/>
      </sch:pattern>
      <sch:pattern is-a="requiredAttribute">
