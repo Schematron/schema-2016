@@ -125,7 +125,7 @@ foreign-element =
            | text)*
      }
 attlist.assert-and-report =
-     attribute id { xsd:ID }?,
+     attribute id { xsd:NCName }?,
      attribute location { text },
      attribute test { text },
      attribute role { xsd:NMTOKEN }?,
