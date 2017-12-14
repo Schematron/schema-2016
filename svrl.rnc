@@ -53,7 +53,7 @@ active-pattern =
 # only rules that are fired are reported,
 fired-rule =
      element fired-rule {
-         attribute id { xsd:ID }?,
+         attribute id { xsd:NCName }?,
          attribute name { text }?,
          attribute context { text },
          attribute role { xsd:NMTOKEN }?,
