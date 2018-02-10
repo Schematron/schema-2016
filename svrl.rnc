@@ -1,4 +1,4 @@
-# Copyright Â© ISO/IEC 2015
+# Copyright © ISO/IEC 2015
 #
 # The following permission notice and disclaimer shall be included in all
 # copies of this XML schema ("the Schema"), and derivations of the Schema:
@@ -22,6 +22,16 @@
 #
 # THIS SCHEMA HAS BEEN MODIFIED FROM THE SCHEMA DEFINED IN ISO/IEC 19757-3,
 # AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD."
+
+
+# THIS SCHEMA HAS BEEN MODIFIED FROM THE SCHEMA DEFINED IN ISO/IEC 19757-3,
+# AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD.
+# The following corrections have been made:
+#   double quotes on SVRL string
+#   attribute id in attlist.assert-and-report corrected to xsd:NMTOKEN as is from assert/@id
+#   attribute id in fired-rule corrected to xsd:NMTOKEN as is from rule/@id
+#   attribute id in attlist.assert-and-report corrected to xsd:NMTOKEN because multiple documents input
+
 namespace local = ""
 default namespace svrl = "http://purl.oclc.org/dsdl/svrl"
 schematron-output =
@@ -44,7 +54,7 @@ ns-prefix-in-attribute-values =
 # only active patterns are reported
 active-pattern =
      element active-pattern {
-         attribute id { xsd:ID }?,
+         attribute id { xsd:NMTOKEN }?,
          attribute documents { text }?,
          attribute name { text }?,
          attribute role { xsd:NMTOKEN }?,
@@ -53,7 +63,7 @@ active-pattern =
 # only rules that are fired are reported,
 fired-rule =
      element fired-rule {
-         attribute id { xsd:ID }?,
+         attribute id { xsd:NMTOKEN }?,
          attribute name { text }?,
          attribute context { text },
          attribute role { xsd:NMTOKEN }?,
@@ -125,7 +135,7 @@ foreign-element =
            | text)*
      }
 attlist.assert-and-report =
-     attribute id { xsd:ID }?,
+     attribute id { xsd:NMTOKEN }?,
      attribute location { text },
      attribute test { text },
      attribute role { xsd:NMTOKEN }?,
