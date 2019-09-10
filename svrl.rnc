@@ -39,6 +39,7 @@ schematron-output =
           attribute title { text }?,
           attribute phase { xsd:NMTOKEN }?,
           attribute schemaVersion { text }?,
+          metadata*,
           human-text*,
           ns-prefix-in-attribute-values*,
          (active-pattern,
@@ -140,4 +141,8 @@ attlist.assert-and-report =
      attribute test { text },
      attribute role { xsd:NMTOKEN }?,
      attribute flag { xsd:NMTOKEN }?
+
+metadata = element metadata {
+               foreign*
+           }
 start = schematron-output
