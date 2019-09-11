@@ -42,7 +42,7 @@ schematron-output =
           human-text*,
           ns-prefix-in-attribute-values*,
          (active-pattern,
-          (fired-rule, (failed-assert | successful-report)*)+)+
+          (fired-rule, (failed-assert | successful-report)*, suppressed-rule*)+)+
      }
 # only namespaces from sch:ns need to be reported
 ns-prefix-in-attribute-values =
@@ -70,6 +70,16 @@ fired-rule =
          attribute flag { xsd:NMTOKEN }?,
          empty
      }
+# report suppressed rules
+suppressed-rule =
+    element suppressed-rule {
+        attribute id { xsd:NMTOKEN }?,
+        attribute name { text }?,
+        attribute context { text },
+        attribute role { xsd:NMTOKEN }?,
+        attribute flag { xsd:NMTOKEN }?,
+        empty
+    }
 # only references are reported, not the diagnostic
 diagnostic-reference =
      element diagnostic-reference {
