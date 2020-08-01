@@ -38,11 +38,12 @@ AND SHOULD NOT BE INTERPRETED AS COMPLYING WITH THAT STANDARD."
                       the id attribute of an abstract pattern.
                </sch:assert>
           </sch:rule>
-          <sch:rule context="sch:extends">
+          <sch:rule context="sch:extends[@rule]">
                <sch:assert test="//sch:rule[@abstract='true'][@id=current()/@rule]"> The rule
-                      attribute of an extends element shall match the id
-                      attribute of an abstract rule.
+                    attribute of an extends element shall match the id
+                    attribute of an abstract rule.
                </sch:assert>
+               <sch:assert test="@rule = ../../sch:rule[@abstract='true']/@id">An abstract rule must extend another rule belonging to the same pattern: rule with id attribute '<sch:value-of select="@rule"/>' is not a child of the containing pattern.</sch:assert>
           </sch:rule>
           <sch:rule context="sch:let">
                <sch:assert
